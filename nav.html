@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        body {
+            min-height: 100vh;
+            background-color: purple;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 0 20px;
+            background-color: pink;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            font-size: 20px;
+            padding: 20px;
+            color: green;
+            display: block;
+        }
+        nav ul li a:hover {
+            background-color: #333;
+            color: white;
+        }
+        nav ul li ul {
+            position: absolute;
+            left: 0;
+            width: 200px;
+            background-color: white;
+            display: none;
+        }
+        nav ul li ul li {
+            width: 100%;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        #menu-bar {
+            display: none;
+        }
+        label {
+            cursor: pointer;
+            display: none;
+            font-size: 20px;
+            color: green;
+        }
+        #about-menu,
+        #gallery-menu {
+            display: none;
+        }
+        .about, .gallery {
+            cursor: pointer;
+            display: inline-block;
+            padding: 20px;
+            color: green;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+            label {
+                display: block;
+            }
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                display: none;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                width: 100%;
+                background-color: #f44336; /* Softer red for better contrast */
+            }
+            nav ul li ul {
+                position: relative;
+                width: 100%;
+                background-color: #f5f5f5; /* Lighter background for submenus */
+                display: none;
+            }
+            nav ul li ul li {
+                padding-left: 20px; /* Indent submenus */
+            }
+            #menu-bar:checked ~ nav {
+                display: block;
+            }
+            /* Click-based submenu toggle for mobile */
+            nav ul li input[type="checkbox"] {
+                display: none;
+            }
+            nav ul li input[type="checkbox"]:checked ~ ul {
+                display: block;
+            }
+            nav ul li label {
+                display: block;
+                width: 100%;
+                padding: 20px;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">LOGO</a>
+        <input type="checkbox" id="menu-bar" aria-label="Toggle menu">
+        <label for="menu-bar">Menu</label>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <input type="checkbox" id="about-menu" aria-label="Toggle About submenu">
+                    <label for="about-menu" aria-expanded="false" class="about">About</label>
+                    <ul>
+                        <li><a href="#">C++</a></li>
+                        <li><a href="#">C#</a></li>
+                        <li><a href="#">MySQL</a></li>
+                        <li><a href="#">PHP</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <input type="checkbox" id="gallery-menu" aria-label="Toggle Gallery submenu">
+                    <label for="gallery-menu" aria-expanded="false" class="gallery">Gallery</label>
+                    <ul>
+                        <li><a href="#">JavaScript</a></li>
+                        <li><a href="#">HTML</a></li>
+                        <li><a href="#">CSS</a></li>
+                        <li><a href="#">Python</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="buttons">
+            <button>Sign In</button>
+            <button>Sign Out</button>
+        </div>
+    </header>
+</body>
+</html>
