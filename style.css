@@ -86,11 +86,12 @@ body{
             display: none;
             font-size: 20px;
         }
-        #about-menu,
-        #gallery-menu {
+        #product-menu,
+        #company-menu,
+        #connect-menu {
             display: none;
         }
-        .about, .gallery{
+        .product,.company, .connect{
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -380,10 +381,13 @@ footer{
             label {
                 display: block;
             }
-            .about{
+            .product{
                 color: black;
             }
-            .gallery{
+            .company{
+                color: black;
+            }
+            .connect{
                 color: black;
             }
             nav {
