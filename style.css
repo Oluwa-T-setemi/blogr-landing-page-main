@@ -340,19 +340,19 @@ footer{
     display: flex;
     justify-content: space-around;
 }
-.footer-links{
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 40px;
+.footer-link{
+    list-style: none;
 }
 .footer-link p{
-    margin-bottom: 20px;
+    margin: 10px 0;
+    margin-left: -10px;
 }
 .footer-dropdown{
     display: flex;
     flex-direction: column;
     gap: 5px;
     margin-left: -10px;
+    list-style: none;
 }
 .footer-dropdown a{
     text-decoration: none;
@@ -583,6 +583,22 @@ footer{
             }
             footer{
                 margin-top: 200px;
+            }
+            footer img{
+                width: 25%;
+                margin: 30px auto;
+            }
+            .footer-link p{
+                font-weight: 600;
+                font-size: 24px;
+                margin-top: 30px;
+            }
+            .footer-dropdown a:hover{
+                text-decoration: none;
+            }   
+            .footer-container{
+            flex-direction: column;
+            text-align: center;
             }
             
         }
