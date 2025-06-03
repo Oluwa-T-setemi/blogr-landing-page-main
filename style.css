@@ -516,7 +516,7 @@ footer{
                 height: 100%;
             }
              .art-infrastructure{
-            margin-top: 350px;
+            margin-top: 600px;
             height: fit-content;
             background-position: center;
             background-size: contain;
@@ -530,6 +530,7 @@ footer{
                 justify-content: center;
                 align-items: center;
                 margin-left: 0px;
+                margin-top: -250px;
             }
             .art-text{
                 width: 100%;
