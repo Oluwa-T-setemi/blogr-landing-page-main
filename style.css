@@ -547,7 +547,6 @@ footer{
             .laptop-section{
                 height: fit-content;
                 margin-top: 100px;
-                /* background-color: aqua; */
             }
             .laptop-container{
                 width: 100%;
@@ -555,14 +554,12 @@ footer{
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                /* background-color: red; */
             }
             .laptop-img{
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                /* background-color: blue; */
                 margin-left: 0;
             }
             .laptop-img :nth-child(1){
