@@ -496,12 +496,12 @@ footer{
             }
             .text{
                 /* background-color: pink; */
-                width: 100%;
+                width: 80%;
                 text-align: center;
             }
             .subtitle{
                 font-size: 30px;
-                margin: 20px 80px;
+                margin: 20px 40px;
                 font-weight: 600    ;
             }
             .editor-image{
