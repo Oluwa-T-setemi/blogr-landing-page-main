@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg" href="./images/logo.svg">
   <link rel="stylesheet" href="style.css">
-  <title>Bloggz</title>
+  <title>Bloggz Dashboard</title>
 </head>
 <body>
   <div class="container">
@@ -49,12 +49,11 @@
             <hr>
 
             <div class="button">
-            <button><a href="/login.html">Login</a></button>
-            <button><a href="/sign-up.html">Sign Up</a></button>
+            <button class="logout">Log Out</button>
         </div>
         </nav>
     </header>
-    <p class="block-text">A modern publishing platform</p>
+    <p class="block-text">Welcome <span style="color: hsl(208, 49%, 24%); font-weight: 600;">John Doe</span></p>
     <p class="sub-text">Grow your audience and build your online brand</p>
     <div class="buttons" id="buttons">
       <button>Start for Free</button>
@@ -153,6 +152,57 @@
       </ul>
     </div>
 
+
   </footer>
 </body>
+<script>
+    const fetchData = async () => {
+        try {
+            let url = "https://core.hisend.hunnovate.com/api/v1/projects/bloggz/auth/user?api_key=7cLG41V6vQV19gDy9w2ERhRx";
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'Authorisation' : `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json',
+                }
+            })
+            let data  = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    fetchData().then(data => {
+        try {
+            let userData = data.data;
+            let userName = userData.name;
+            user.textContent = userData.full_Name;
+        } catch (error) {
+          console.error('Error processing data:', error);  
+        }
+    });
+
+    document.querySelector('.logout').addEventListener('click', async (e) => {
+        e.preventDefault();
+
+
+        try {
+            let url = "https://core.hisend.hunnovate.com/api/v1/projects/bloggz/auth/logout?api_key=7cLG41V6vQV19gDy9w2ERhRx";
+        const response = await fetch(url, {
+            method: 'POST',
+            body: {},
+            headers: {
+                'Authorisation' : `Bearer ${localStorage.getItem('token')}`,
+            }
+        })
+
+        let data = await response.json();
+        alert('Logged out successfully');
+        localStorage.removeItem('token');
+        window.location.href = 'index.html';
+        } catch (error) {
+         alert('Failed to log out', error.message);   
+        }
+    });
+</script>
 </html>
